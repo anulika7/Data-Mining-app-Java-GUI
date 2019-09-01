@@ -9,4 +9,4 @@ Pilih folder dist dan ambil file dengan ekstensi war
 
 Pastikan perangkat anda sudah terinstall JDK versi 8
 
-dan anda tinggal men-double click untuk menjalankannya
+dan anda tinggal men-double click untuk menjalankannya pada file itu
