@@ -5,7 +5,7 @@ Aplikasi dengan bahasa pemograman Java
 
 Jika ingin mencoba di perangkat anda 
 
-Pilih folder dist dan ambil file dengan ekstensi jar
+Pilih folder dist dan ambil file JavaAppWeka.jar
 
 Pastikan perangkat anda sudah terinstall JDK versi 8
 
