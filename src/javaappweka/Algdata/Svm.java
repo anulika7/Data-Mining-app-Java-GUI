@@ -10,24 +10,26 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import weka.classifiers.Evaluation;
-import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.functions.SMO;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
 /**
  *
- * @author G4_Homes
+ * @author G4_HOMES
  */
-public class N_Bayes extends javax.swing.JFrame {
+public class Svm extends javax.swing.JFrame {
 
     /**
-     * Creates new form SaveDoc
+     * Creates new form Svm
      */
-    public N_Bayes() {
+    public Svm() {
         initComponents();
         this.setLocationRelativeTo(null);
         Thasil.setEditable(false);
@@ -46,22 +48,26 @@ public class N_Bayes extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         Tdata = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Thasil = new javax.swing.JTextArea();
         tname = new javax.swing.JTextField();
         BRef = new javax.swing.JButton();
         Bcari = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         Jsimpan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Algoritma Klasifikasi Naive Bayes");
+        setTitle("Algoritma Klasifikasi Support Vector Machine Fungsi SMO");
         setResizable(false);
 
         Tdata.setColumns(20);
         Tdata.setRows(5);
         jScrollPane2.setViewportView(Tdata);
+
+        jLabel1.setFont(new java.awt.Font("Consolas", 3, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Untuk pengujian Data Gunakan Format File Aplikasi Data Mining Weka (arff) ");
 
         Thasil.setColumns(20);
         Thasil.setRows(5);
@@ -110,10 +116,6 @@ public class N_Bayes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Constantia", 3, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Untuk pengujian Data Gunakan Format File Aplikasi Data Mining Weka (arff) ");
-
         Jsimpan.setText("Simpan Hasil Data percobaan");
         Jsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,8 +157,14 @@ public class N_Bayes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRefActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new Svm().setVisible(true);
+    }//GEN-LAST:event_BRefActionPerformed
+
     private void BcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcariActionPerformed
-        // TODO add your handling code here:      
+        // TODO add your handling code here:
         JFileChooser jfc = new JFileChooser();
         jfc.showOpenDialog(null);
         File file = jfc.getSelectedFile();
@@ -169,12 +177,12 @@ public class N_Bayes extends javax.swing.JFrame {
             Instances dataset = arffLoader.getDataSet();
             dataset.setClassIndex(dataset.numAttributes() - 1);
 
-            NaiveBayes nby = new NaiveBayes();
-            nby.buildClassifier(dataset);
+            SMO smo = new SMO();
+            smo.buildClassifier(dataset);
             Evaluation eva = new Evaluation(dataset);
 
-            eva.evaluateModel(nby, dataset);
-            Thasil.setText(nby.toString() + eva.toSummaryString() + eva.toMatrixString());
+            eva.evaluateModel(smo, dataset);
+            Thasil.setText(smo.toString() + eva.toSummaryString() + eva.toMatrixString());
             //lanjut ke peer Cross Validation
 
         } catch (Exception ex) {
@@ -185,12 +193,6 @@ public class N_Bayes extends javax.swing.JFrame {
         Bcari.setVisible(false);
         Jsimpan.setVisible(true);
     }//GEN-LAST:event_BcariActionPerformed
-
-    private void BRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRefActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        new N_Bayes().setVisible(true);
-    }//GEN-LAST:event_BRefActionPerformed
 
     private void JsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JsimpanActionPerformed
         // TODO add your handling code here:
@@ -224,24 +226,20 @@ public class N_Bayes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(N_Bayes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Svm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(N_Bayes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Svm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(N_Bayes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Svm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(N_Bayes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Svm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new N_Bayes().setVisible(true);
+                new Svm().setVisible(true);
             }
         });
     }
