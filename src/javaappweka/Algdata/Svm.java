@@ -10,11 +10,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import weka.classifiers.Evaluation;
 import weka.classifiers.functions.SMO;
 import weka.core.Instances;
@@ -31,7 +29,7 @@ public class Svm extends javax.swing.JFrame {
      */
     public Svm() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
         Thasil.setEditable(false);
         BRef.setVisible(false);
         Jsimpan.setVisible(false);
@@ -56,6 +54,7 @@ public class Svm extends javax.swing.JFrame {
         BRef = new javax.swing.JButton();
         Bcari = new javax.swing.JButton();
         Jsimpan = new javax.swing.JButton();
+        tsimpan = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Algoritma Klasifikasi Support Vector Machine Fungsi SMO");
@@ -134,10 +133,11 @@ public class Svm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Jsimpan)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(tsimpan)
+                                .addGap(18, 18, 18)
+                                .addComponent(Jsimpan)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,7 +150,9 @@ public class Svm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jsimpan)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jsimpan)
+                    .addComponent(tsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -207,6 +209,7 @@ public class Svm extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Svm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        tsimpan.setText(fi.toString());
     }//GEN-LAST:event_JsimpanActionPerformed
 
     /**
@@ -255,5 +258,6 @@ public class Svm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField tname;
+    private javax.swing.JTextField tsimpan;
     // End of variables declaration//GEN-END:variables
 }

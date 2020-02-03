@@ -19,6 +19,7 @@ public class Menunya extends javax.swing.JFrame {
      */
     public Menunya() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -54,7 +55,7 @@ public class Menunya extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 3, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Aplikasi ");
+        jLabel1.setText("Aplikasi - Sederhana");
 
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 3, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -104,7 +105,11 @@ public class Menunya extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("@2020");
 
+        jMenuBar1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 16)); // NOI18N
+
         jMenu1.setText("List Metode");
+        jMenu1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         MenuNb.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuNb.setText("Naive Bayes");
@@ -127,6 +132,7 @@ public class Menunya extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Keluar");
+        jMenu2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Close App");

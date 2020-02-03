@@ -1,0 +1,15 @@
+========================
+About Mee
+========================
+Agus Riyanto - 08138373094
+
+my skill
+Java Maven
+Java Desktop
+Java Web Enterprise (Jsp dan Jsf)
+Hibernate dan Jpa
+python
+Node.js
+Html5
+Database:(PostgresSql, MySql and No_Sql{mongo, Reddits, Firebase etc}
+offline dan cloud server)

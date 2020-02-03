@@ -29,7 +29,6 @@ public class N_Bayes extends javax.swing.JFrame {
      */
     public N_Bayes() {
         initComponents();
-        this.setLocationRelativeTo(null);
         Thasil.setEditable(false);
         BRef.setVisible(false);
         Jsimpan.setVisible(false);
@@ -54,6 +53,7 @@ public class N_Bayes extends javax.swing.JFrame {
         Bcari = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Jsimpan = new javax.swing.JButton();
+        Tsimpan = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Algoritma Klasifikasi Naive Bayes");
@@ -132,10 +132,11 @@ public class N_Bayes extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Jsimpan)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Tsimpan)
+                                .addGap(18, 18, 18)
+                                .addComponent(Jsimpan)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -148,7 +149,9 @@ public class N_Bayes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jsimpan)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Jsimpan)
+                    .addComponent(Tsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -205,6 +208,7 @@ public class N_Bayes extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Svm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Tsimpan.setText(fi.toString());
     }//GEN-LAST:event_JsimpanActionPerformed
 
     /**
@@ -252,6 +256,7 @@ public class N_Bayes extends javax.swing.JFrame {
     private javax.swing.JButton Jsimpan;
     private javax.swing.JTextArea Tdata;
     private javax.swing.JTextArea Thasil;
+    private javax.swing.JTextField Tsimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
